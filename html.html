@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 检测设备类型
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        }
+
+        // 根据设备类型进行跳转
+        function redirectBasedOnDevice() {
+            if (isMobileDevice()) {
+                window.location.replace("./dist/index.html"); // 跳转到移动端页面
+            } else {
+                window.location.replace("./dist2/index.html"); // 跳转到网页端页面
+            }
+        }
+
+        // 页面加载时执行跳转
+        window.onload = redirectBasedOnDevice;
+    </script>
+</head>
+<body>
+    <div><a href="./dist/index.html">1</a></div>
+    <div><a href="./dist2/index.html">2</a></div>
+</body>
+</html>
